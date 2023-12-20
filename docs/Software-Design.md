@@ -272,7 +272,7 @@
 | createdAt | Date | 생성 일시(= 그룹 생성 일시) |
 | updatedAt | Date | (그룹 정보의) 수정 일시 |
 
-**GroupUser Schema**: `User`, `Group` 스키마 간의 다대다 관계를 나타내기 위한 스키마
+**GroupUser Schema**: 사용자의 그룹 가입 정보
 | Field | Type | Meaning |
 | :--: | :--: | :-- |
 | group | ObjectId | 그룹(그룹의 Object ID) |
@@ -322,7 +322,7 @@
 
 <img width="617" alt="아키텍처" src="https://github.com/mediaWebAppTeam5/memouri_backend/assets/89457737/32aaaf44-4a9f-4c83-bad9-9cbb06ee9e26">
 
-#### 5.2. Sequence Diagram
+### 5.2. Sequence Diagram
 애플리케이션에서 중요한 기능인 Authentication과 Video 관련 시퀀스 다이어그램입니다.
 
 #### 5.2.1. Authentication
