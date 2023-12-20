@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Streaming with HLS</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+    <h1>동영상 스트리밍</h1>
+    <label for="videoIdInput">Video ID:</label>
+    <input type="text" id="videoIdInput">
+    <button onclick="streamVideo()">Stream</button>
+    <div id="videoPlayerContainer"></div>
+
+    <script>
+        function streamVideo() {
+            const videoIdInput = document.getElementById('videoIdInput');
+            const videoId = videoIdInput.value;
+
+            fetch(`/api/videos/hls/${videoId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.path) {
+                        const streamURL = `http://localhost:4000/${decodeURIComponent(data.path)}`;
+
+                        const videoPlayerContainer = document.getElementById('videoPlayerContainer');
+                        videoPlayerContainer.innerHTML = ''; // 이전 비디오 플레이어 제거
+
+                        const videoPlayer = document.createElement('video');
+                        videoPlayer.id = 'videoPlayer';
+                        videoPlayer.controls = true;
+                        videoPlayer.width = 1024; // 너비를 1024로 설정
+                        videoPlayer.height = 768; // 높이를 768로 설정
+                        videoPlayerContainer.appendChild(videoPlayer);
+
+                        const hls = new Hls();
+                        hls.loadSource(streamURL);
+                        hls.attachMedia(videoPlayer);
+                        hls.on(Hls.Events.MANIFEST_PARSED, () => videoPlayer.play());
+                    } else {
+                        console.error('Invalid response from server:', data);
+                    }
+                })
+                .catch(error => console.error(error));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload picture</title>
+</head>
+<body>
+  <section>
+    <h2>프로필 이미지 등록</h2>
+    <form id="uploadForm" action="/api/users/picture" method="POST" enctype="multipart/form-data">
+      <label for="uploadImage">이미지 선택:</label>
+      <input type="file" id="uploadImage" accept="image/*" name="image">
+      <button type="submit">프로필 이미지 등록</button>
+      <div id="uploadedImageContainer"></div>
+    </form>
+  </section>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>동영상 재생 시간 설정</title>
+</head>
+<body>
+    <h1>동영상 재생 시간 설정</h1>
+    <form id="videoForm">
+        <label for="videoId">동영상 ID:</label>
+        <input type="text" id="videoId" name="videoId" required>
+        <br>
+        <label for="stopTime">재생 중지 시간 (숫자):</label>
+        <input type="number" id="stopTime" name="stopTime" required>
+        <br>
+        <input type="submit" value="동영상 재생 시간 설정">
+    </form>
+
+    <script>
+        document.getElementById("videoForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const videoId = document.getElementById("videoId").value;
+            const stopTime = document.getElementById("stopTime").value;
+
+            // PATCH 요청 생성
+            const requestOptions = {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ stopTime: stopTime })
+            };
+
+            // /api/videos/playback/${videoId}에 PATCH 요청 전송
+            fetch(`/api/videos/playback/${videoId}`, requestOptions)
+                .then(response => {
+                    if (response.status === 200) {
+                        alert("동영상 재생 시간이 설정되었습니다.");
+                    } else {
+                        alert("동영상 재생 시간 설정에 실패했습니다.");
+                    }
+                })
+                .catch(error => {
+                    console.error("오류 발생:", error);
+                    alert("서버와의 통신 중 오류가 발생했습니다.");
+                });
+        });
+    </script>
+</body>
+</html>

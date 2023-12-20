@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동영상 LIKE 설정</title>
+</head>
+<body>
+    <h1>동영상 LIKE 설정</h1>
+    
+    <label for="videoIdInput">동영상 ID:</label>
+    <input type="text" id="videoIdInput" placeholder="동영상 ID를 입력하세요">
+    <button id="pinButton">Like 설정</button>
+
+    <div id="responseArea"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pinButton = document.getElementById('pinButton');
+            const videoIdInput = document.getElementById('videoIdInput');
+            const responseArea = document.getElementById('responseArea');
+
+            pinButton.addEventListener('click', () => {
+                const videoId = videoIdInput.value;
+
+                // PATCH 요청 보내기
+                fetch(`http://localhost:4000/api/videos/like/${videoId}`, {
+                    method: 'PATCH'
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('네트워크 응답이 실패했습니다.');
+                    }
+                    return response.text(); // 응답 데이터를 텍스트로 가져옵니다.
+                })
+                .then(data => {
+                    responseArea.innerHTML = `서버 응답: ${data}`;
+                })
+                .catch(error => {
+                    responseArea.innerHTML = `오류: ${error.message}`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

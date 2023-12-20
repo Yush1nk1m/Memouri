@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Bootstrap default background color */
+            padding: 20px; /* Add some padding for better appearance */
+        }
+        form {
+            max-width: 300px; /* Set the maximum width of the form */
+            margin: auto; /* Center the form */
+            background-color: #fff; /* White background for the form */
+            padding: 20px; /* Add some padding to the form */
+            border-radius: 10px; /* Rounded corners for better appearance */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a slight shadow */
+        }
+        label {
+            font-weight: bold; /* Make labels bold */
+        }
+        button {
+            margin-top: 10px; /* Add some margin to the button */
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="/api/users/join">
+        <div class="form-group">
+            <label for="userId">ID:</label>
+            <input type="text" class="form-control" name="userId" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="name" class="form-control" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">e-mail:</label>
+            <input type="email" class="form-control" name="email" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+
+    <!-- Bootstrap JS and Popper.js CDN (required for Bootstrap components) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

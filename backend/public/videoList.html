@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video List</title>
+</head>
+<body>
+    <h1>Video List</h1>
+
+    <div id="group-list">
+        <!-- 그룹 목록이 여기에 표시될 것입니다. -->
+    </div>
+
+    <div id="video-list">
+        <!-- 선택한 그룹의 동영상 목록이 여기에 표시될 것입니다. -->
+    </div>
+
+    <script>
+        // 1. 그룹 목록을 불러오는 함수
+        function loadGroups() {
+            fetch("/api/groups/list")
+                .then(response => response.json())
+                .then(data => {
+                    // 그룹 목록을 받아와서 화면에 표시하는 코드를 작성
+                    var groupList = document.getElementById("group-list");
+                    data.forEach(function (group) {
+                        var button = document.createElement("button");
+                        button.textContent = group.groupName;
+                        button.addEventListener("click", function () {
+                            loadVideos(group.groupId);
+                        });
+                        groupList.appendChild(button);
+                    });
+                });
+        }
+
+        // 2. 선택한 그룹의 동영상 목록을 불러오는 함수
+        function loadVideos(groupId) {
+            fetch("/api/videos/list/" + groupId)
+                .then(response => response.json())
+                .then(data => {
+                    // 동영상 목록을 받아와서 화면에 표시하는 코드를 작성
+                    var videoList = document.getElementById("video-list");
+                    videoList.innerHTML = ""; // 이전 동영상 목록을 지웁니다.
+                    var videos = data.info;
+                    for (var i = 0; i < videos.length; i++) {
+                        var video = videos[i];
+                        var videoId = video.videoId;
+                        var title = video.title;
+                        var thumbnailUrl = "/api/videos/thumbnail/" + videoId;
+
+                        // 동영상 정보와 썸네일을 화면에 추가
+                        var videoInfo = document.createElement("div");
+                        videoInfo.className = "video-info";
+                        videoInfo.innerHTML = `
+                            <img src="${thumbnailUrl}" alt="Thumbnail">
+                            <p>${title}</p>
+                        `;
+                        videoList.appendChild(videoInfo);
+                    }
+                });
+        }
+
+        // 페이지가 로드될 때 그룹 목록을 불러옵니다.
+        loadGroups();
+    </script>
+</body>
+</html>

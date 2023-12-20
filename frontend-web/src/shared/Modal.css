@@ -1,0 +1,52 @@
+.ModalCanvas {
+  width: 360px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: 3%;
+}
+.ModalCanvas .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.ModalCanvas .title div {
+  flex: 1; /* 이 부분이 중요합니다. */
+  text-align: center;
+  margin-left: 20px;
+  color: black;
+  font-size: 20px;
+  font-family: 'Noto Sans KR';
+}
+.ModalCanvas .title button {
+  border-radius: 50%;
+  border: none;
+  background-color: #e1e1e1;
+  font-style: bold;
+  margin-left: 10px;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+
+.ModalCanvas input {
+  border: none;
+  border-bottom: 2px solid #d1d1d4;
+  background: none;
+
+  margin-bottom: 30px;
+  font-weight: 700;
+  transition: 0.2s;
+  width: 75%;
+  width: 350px;
+  height: 40px;
+}
+.ModalCanvas input:active,
+.ModalCanvas input:focus,
+.ModalCanvas input:hover {
+  outline: none;
+  border-bottom-color: rgb(146, 146, 146);
+}

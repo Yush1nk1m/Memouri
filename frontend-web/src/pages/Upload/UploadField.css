@@ -1,0 +1,148 @@
+.video-container {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+
+.video-container .item {
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  align-items: center; /* 추가된 부분 */
+}
+
+.video-container .thumbnail {
+  width: 250px;
+  height: auto;
+}
+
+.video-container .item button {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 50%;
+  border: 1px solid #575757;
+  cursor: pointer;
+}
+
+.video-container .item:nth-child(3),
+.video-container .item:nth-child(4),
+.video-container .item:nth-child(5) {
+  width: 150px;
+}
+
+.video-container .item:nth-child(6) {
+  width: 240px;
+}
+
+.video-container .item:last-child {
+  flex-grow: 1;
+  /* 남은 공간을 모두 차지하도록 함 */
+}
+
+.Filter {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+
+.Filter .item {
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.Filter .item1 {
+  width: 30px;
+}
+
+.Filter .item:nth-child(2) {
+  width: 270px;
+}
+.Filter .item:nth-child(3),
+.Filter .item:nth-child(4),
+.Filter .item:nth-child(5) {
+  width: 150px;
+}
+
+.Filter .item:nth-child(6) {
+  width: 240px;
+}
+
+.Filter .item:last-child {
+  flex-grow: 1;
+}
+
+.uploadButton {
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  background-color: #065fd4;
+  padding: 13px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+}
+
+.Modal {
+  width: 360px;
+  height: 450px;
+  flex-direction: column;
+  border: none;
+  border-radius: 3%;
+}
+.Modal .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.Modal .title div {
+  flex: 1; /* 이 부분이 중요합니다. */
+  text-align: center;
+  margin-left: 20px;
+  color: black;
+  font-size: 20px;
+  font-family: 'Noto Sans KR';
+}
+.Modal .title button {
+  border-radius: 50%;
+  border: none;
+  background-color: #e1e1e1;
+  font-style: bold;
+  margin-left: 10px;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+.modalButton {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.modalButton button {
+  padding: 10px 30px 10px 30px;
+  cursor: pointer;
+}
+
+.Modal input {
+  border: none;
+  border-bottom: 2px solid #d1d1d4;
+  background: none;
+
+  margin-bottom: 30px;
+  font-weight: 700;
+  transition: 0.2s;
+  width: 75%;
+  width: 350px;
+  height: 40px;
+}
+.Modal input:active,
+.Modal input:focus,
+.Modal input:hover {
+  outline: none;
+  border-bottom-color: rgb(146, 146, 146);
+}

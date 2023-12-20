@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Group</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Bootstrap default background color */
+            padding: 20px; /* Add some padding for better appearance */
+        }
+        form {
+            max-width: 300px; /* Set the maximum width of the form */
+            margin: auto; /* Center the form */
+            background-color: #fff; /* White background for the form */
+            padding: 20px; /* Add some padding to the form */
+            border-radius: 10px; /* Rounded corners for better appearance */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a slight shadow */
+        }
+        label {
+            font-weight: bold; /* Make labels bold */
+        }
+        button {
+            margin-top: 10px; /* Add some margin to the button */
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="/api/groups/create">
+        <div class="form-group">
+            <label for="groupId">GROUP ID:</label>
+            <input type="text" class="form-control" name="groupId" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="name">GROUP NAME:</label>
+            <input type="name" class="form-control" name="name" required>
+        </div>
+        <button type="submit" class="btn btn-primary">CREATE</button>
+    </form>
+
+    <!-- Bootstrap JS and Popper.js CDN (required for Bootstrap components) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

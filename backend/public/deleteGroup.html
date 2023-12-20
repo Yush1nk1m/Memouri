@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Group Deletion</title>
+</head>
+<body>
+    <h2>그룹 삭제</h2>
+    <input type="text" id="groupId" placeholder="그룹 ID를 입력하세요">
+    <input type="text" id="password" placeholder="그룹 비밀번호를 입력하세요">
+    <button onclick="deleteVideo()">삭제</button>
+
+    <script>
+        function deleteVideo() {
+            var groupId = document.getElementById('groupId').value;
+            var password = document.getElementById("password").value;
+
+            fetch('/api/groups', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ groupId: groupId, password: password })
+            })
+            .then(response => {
+                if (response.status === 200) {
+                    return alert('그룹이 성공적으로 삭제되었습니다.');
+                } else {
+                    throw new Error('Failed to delete video');
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('오류가 발생했습니다. 다시 시도해 주세요.');
+            });
+        }
+    </script>
+</body>
+</html>

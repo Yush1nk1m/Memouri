@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>회원 탈퇴</title>
+</head>
+<body>
+    <h2>회원 탈퇴</h2>
+    <p>탈퇴를 원하시면 비밀번호를 입력해 주세요.</p>
+    <input type="password" id="password" placeholder="비밀번호">
+    <button onclick="deleteAccount()">탈퇴하기</button>
+
+    <script>
+        function deleteAccount() {
+            var password = document.getElementById('password').value;
+
+            fetch('/api/users', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ password: password })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('회원 탈퇴가 완료되었습니다.');
+                    // 추가적인 액션, 예: 로그아웃 처리, 홈페이지로 리디렉션 등
+                } else {
+                    alert('오류가 발생했습니다. 비밀번호를 확인해 주세요.');
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('오류가 발생했습니다. 다시 시도해 주세요.');
+            });
+        }
+    </script>
+</body>
+</html>

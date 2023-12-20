@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... (이전 내용 그대로) ... -->
+</head>
+<body>
+    <form method="POST" id="loginForm">
+        <div class="form-group">
+            <label for="userId">ID:</label>
+            <input type="text" class="form-control" name="userId" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Log In</button>
+    </form>
+
+    <script>
+        const URL_ = "192.168.0.7";
+        // 현재 페이지의 URL을 얻어옴
+        const currentURL = window.location.href;
+
+        // 정규식을 사용하여 sessionID를 추출
+        const matchResult = currentURL.match(/\/api\/users\/qrlogin\/([^/]+)/);
+        const sessionID = matchResult ? matchResult[1] : null;
+
+        // sessionID가 있으면 form의 action을 동적으로 설정
+        if (sessionID) {
+            const form = document.getElementById('loginForm');
+            form.action = `http://${URL_}:4000/api/users/qrlogin/${sessionID}`;
+        }
+    </script>
+
+    <!-- Bootstrap JS and Popper.js CDN (required for Bootstrap components) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
