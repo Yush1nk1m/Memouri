@@ -1,6 +1,6 @@
  LG전자의 요청으로 실제 작업이 진행된 리포지토리의 접근 권한은 private 처리되었습니다. 커밋 히스토리 같은 정보가 필요하시다면 별도로 요청해 주시기 바랍니다. 백엔드에서 작업한 내용은 /backend, /docs 디렉터리에 포함되어 있습니다.
 
-# Memouri (2023. 11. ~ 2023. 12.)
+# Memouri (2023. 10. ~ 2023. 12.)
 
 최종 편집 일시: 2024년 5월 28일 오후 5:25</br>
 태그: Express, FFMPEG, Javascript, MongoDB, Mongoose, Node.JS</br>
