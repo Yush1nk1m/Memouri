@@ -2,7 +2,7 @@
 
 # Memouri
 
-![alt text](images/memouri-logo.png)
+![alt text](docs/assets/memouri-logo.png)
 
 **WebOS 기반 LG 스마트 TV 미디어 웹앱 · 그룹 기반 소셜 미디어 스트리밍 서비스**
 
@@ -36,6 +36,7 @@
 > **Back-end** — Sole developer of the entire backend, excluding the authentication API
 
 REST API 설계 및 구현, FFMPEG 기반 미디어 처리 파이프라인, HLS 적응형 스트리밍, MongoDB 스키마 설계, 파일 시스템 관리, 문서화(설계·API·테스트)를 단독으로 담당했습니다.
+
 Responsible for REST API design & implementation, the FFMPEG media-processing pipeline, HLS adaptive streaming, MongoDB schema design, file-system management, and documentation (design, API, test plans).
 
 ---
@@ -56,7 +57,7 @@ Responsible for REST API design & implementation, the FFMPEG media-processing pi
 
 ## ✨ 주요 기능 / Key Features
 
-- **그룹 기반 상호작용 / Group-based interaction** — 그룹 생성·가입·탈퇴, 동영상 게시, 좋아요 표시
+- **그룹 기반 상호작용 / Group-based interaction** — 그룹 생성·가입·탈퇴, 동영상 게시, 좋아요 표시 
   Create/join/leave groups, post videos, and like content within a group.
 - **QR 코드 로그인 / QR code login** — 리모콘 입력의 번거로움을 줄이는 모바일 QR 로그인 *(인증 API, 팀원 담당)*
   Mobile QR login to avoid cumbersome remote-control input *(auth API by teammate)*.
